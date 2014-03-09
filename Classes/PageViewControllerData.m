@@ -130,17 +130,16 @@
     }
     UIFont *font = [UIFont boldSystemFontOfSize: fontSize];
     
-    
     // draw text
     [ mytext drawInRect : aRectangle
              withFont : font
         lineBreakMode : NSLineBreakByTruncatingTail
             alignment : NSTextAlignmentCenter ];
     
-    UIImage *theImage=UIGraphicsGetImageFromCurrentImageContext();
+    UIImage *newImage=UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    return theImage;
+    return newImage;
 }
 
 @end
