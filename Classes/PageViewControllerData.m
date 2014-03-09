@@ -78,4 +78,31 @@
     return fullScreenImage;
 }
 
+
+//PP
+- (UIImage *)filteredphotoAtIndex:(NSUInteger)index;
+{
+    ALAsset *photoAsset = self.photoAssets[index];
+    
+    ALAssetRepresentation *assetRepresentation = [photoAsset defaultRepresentation];
+    
+    UIImage *fullScreenImage = [UIImage imageWithCGImage:[assetRepresentation fullScreenImage]
+                                                   scale:[assetRepresentation scale]
+                                             orientation:ALAssetOrientationUp];
+    
+    // make ciimage out of uiimage
+    CIImage *beginImage = [[CIImage alloc] initWithCGImage:fullScreenImage.CGImage];
+    
+    // apply filter
+    CIFilter *filter = [CIFilter filterWithName:@"CISepiaTone"
+                                  keysAndValues: kCIInputImageKey, beginImage,
+                        @"inputIntensity", @0.8, nil];
+    CIImage *outputImage = [filter outputImage];
+    
+    // convert ciimage to uiimage
+    UIImage *newImage = [UIImage imageWithCIImage:outputImage];
+    
+    return newImage;
+}
+
 @end

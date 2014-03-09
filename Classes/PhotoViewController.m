@@ -73,8 +73,19 @@
 - (void)loadView
 {
     // replace our view property with our custom image scroll view
+    
+    //PP
+    // object declare method 1 : manual alloc
     ImageScrollView *scrollView = [[ImageScrollView alloc] init];
     scrollView.index = _pageIndex;
+    
+    //PP
+    // object declare method 2 : auto alloc
+    ImageScrollView *scrollView2 = [ImageScrollView new];
+    scrollView2.index = _pageIndex;
+    
+    //PP
+    NSLog ( @"current image index: %@", [NSString stringWithFormat:@"%d", scrollView2.index] );
     
     self.view = scrollView;
 }

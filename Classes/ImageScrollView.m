@@ -80,7 +80,11 @@
 - (void)setIndex:(NSUInteger)index {
     
     _index = index;
-    UIImage *image = [[PageViewControllerData sharedInstance] photoAtIndex:index];
+    //UIImage *image = [[PageViewControllerData sharedInstance] photoAtIndex:index];
+    
+    //PP
+    UIImage *image = [[PageViewControllerData sharedInstance] filteredphotoAtIndex:index];
+    
     [self displayImage:image];
 }
 

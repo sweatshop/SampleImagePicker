@@ -56,4 +56,7 @@
 - (NSUInteger)photoCount;
 - (UIImage *)photoAtIndex:(NSUInteger)index;
 
+//PP
+- (UIImage *)filteredphotoAtIndex:(NSUInteger)index;
+
 @end
