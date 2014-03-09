@@ -123,7 +123,7 @@
     [fullScreenImage drawInRect:aRectangle];
     NSString *mytext = @"PP is tha best";
     [[UIColor redColor] set];
-    NSInteger fontSize = 40;
+    NSInteger fontSize = 50;
     if ( [mytext length] > 200 )
     {
         fontSize = 10;
