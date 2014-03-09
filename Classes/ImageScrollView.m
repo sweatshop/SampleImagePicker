@@ -83,7 +83,8 @@
     //UIImage *image = [[PageViewControllerData sharedInstance] photoAtIndex:index];
     
     //PP
-    UIImage *image = [[PageViewControllerData sharedInstance] filteredphotoAtIndex:index];
+    //UIImage *image = [[PageViewControllerData sharedInstance] filteredphotoAtIndex:index];
+    UIImage *image = [[PageViewControllerData sharedInstance] letteredphotoAtIndex:index];
     
     [self displayImage:image];
 }

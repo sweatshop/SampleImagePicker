@@ -59,4 +59,7 @@
 //PP
 - (UIImage *)filteredphotoAtIndex:(NSUInteger)index;
 
+//PP
+- (UIImage *)letteredphotoAtIndex:(NSUInteger)index;
+
 @end

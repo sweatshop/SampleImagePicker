@@ -105,4 +105,42 @@
     return newImage;
 }
 
+
+//PP
+- (UIImage *)letteredphotoAtIndex:(NSUInteger)index;
+{
+    ALAsset *photoAsset = self.photoAssets[index];
+    
+    ALAssetRepresentation *assetRepresentation = [photoAsset defaultRepresentation];
+    
+    UIImage *fullScreenImage = [UIImage imageWithCGImage:[assetRepresentation fullScreenImage]
+                                                   scale:[assetRepresentation scale]
+                                             orientation:ALAssetOrientationUp];
+    
+    // prepare for text input
+    UIGraphicsBeginImageContext(fullScreenImage.size);
+    CGRect aRectangle = CGRectMake(0,0, fullScreenImage.size.width, fullScreenImage.size.height);
+    [fullScreenImage drawInRect:aRectangle];
+    NSString *mytext = @"PP is tha best";
+    [[UIColor redColor] set];
+    NSInteger fontSize = 40;
+    if ( [mytext length] > 200 )
+    {
+        fontSize = 10;
+    }
+    UIFont *font = [UIFont boldSystemFontOfSize: fontSize];
+    
+    
+    // draw text
+    [ mytext drawInRect : aRectangle
+             withFont : font
+        lineBreakMode : NSLineBreakByTruncatingTail
+            alignment : NSTextAlignmentCenter ];
+    
+    UIImage *theImage=UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return theImage;
+}
+
 @end
